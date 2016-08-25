@@ -1,22 +1,88 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
+//import FormBuilder from '../imports/form_builder/index.jsx';
+import React, {Component} from 'react';
+import {render} from 'react-dom';
+import FormBuilder from 'form-builder';
+//const FormBuilder = Meteor.npmRequire('form-builder');
+import customized_widgets from 'form-builder/lib/customized_widgets';
+import preset from './preset.js';
+
+
 
 import './main.html';
 
-Template.hello.onCreated(function helloOnCreated() {
-  // counter starts at 0
-  this.counter = new ReactiveVar(0);
-});
 
-Template.hello.helpers({
-  counter() {
-    return Template.instance().counter.get();
-  },
-});
 
-Template.hello.events({
-  'click button'(event, instance) {
-    // increment the counter when button is clicked
-    instance.counter.set(instance.counter.get() + 1);
-  },
+class App extends Component {
+  constructor(props) {
+    super(props);
+  }
+  onSubmit(formSchema){
+    console.log(formSchema);
+  }
+  render(){
+    return (<FormBuilder
+                preset={preset}
+                fields={customized_widgets}
+                onSubmit={this.onSubmit}
+                formName={"developing"}
+                formSchema={{
+                    schema:{
+                      "title": "A registration form",
+                      "description": "A simple form example.",
+                      "type": "object",
+                      "required": [
+                        "firstName",
+                        "lastName"
+                      ],
+                      "properties": {
+                        "firstName": {
+                          "type": "string",
+                          "title": "First name"
+                        },
+                        "lastName": {
+                          "type": "string",
+                          "title": "Last name"
+                        },
+                        "age": {
+                          "type": "integer",
+                          "title": "Age"
+                        },
+                        "bio": {
+                          "type": "string",
+                          "title": "Bio"
+                        },
+                        "password": {
+                          "type": "string",
+                          "title": "Password",
+                          "minLength": 3
+                        }
+                      }
+                    },
+                    uiSchema:{
+                      "age": {
+                        "ui:widget": "updown"
+                      },
+                      "bio": {
+                        "ui:widget": "textarea"
+                      },
+                      "password": {
+                        "ui:widget": "password",
+                        "ui:help": "Hint: Make it strong!"
+                      },
+                      "date": {
+                        "ui:widget": "alt-datetime"
+                      }
+                    }
+                  }}
+
+
+            />);
+  }
+}
+
+Meteor.startup(() => {
+  console.log(preset);
+  render(<App />, document.getElementById('app'));
 });

@@ -5,6 +5,10 @@
     "start": "meteor run"
   },
   "dependencies": {
-    "meteor-node-stubs": "~0.2.0"
+    "form-builder": "https://github.com/clearbridgesoft/form-builder/releases/download/v0.0.0/form-builder-0.0.0.tgz",
+    "meteor-node-stubs": "^0.2.3",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1",
+    "url": "^0.11.0"
   }
 }
