@@ -8,6 +8,8 @@ import FormBuilder from 'form-builder';
 import customized_widgets from 'form-builder/lib/customized_widgets';
 import preset from './preset.js';
 
+import '../node_modules/react-ui-tree/dist/react-ui-tree.css';
+import '../node_modules/react-datetime/css/react-datetime.css';
 
 
 import './main.html';
