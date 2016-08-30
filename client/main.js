@@ -5,7 +5,7 @@ import React, {Component} from 'react';
 import {render} from 'react-dom';
 import FormBuilder from 'form-builder';
 //const FormBuilder = Meteor.npmRequire('form-builder');
-import customized_widgets from 'form-builder/lib/customized_widgets';
+import customized_widgets from 'form-custom-components';
 import preset from './preset.js';
 
 import '../node_modules/react-ui-tree/dist/react-ui-tree.css';
