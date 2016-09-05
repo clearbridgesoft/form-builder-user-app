@@ -7,7 +7,8 @@
   "dependencies": {
     "classname": "0.0.0",
     "deepcopy": "^0.6.3",
-    "form-builder": "https://github.com/clearbridgesoft/form-builder/releases/download/v0.0.1/form-builder-0.0.1.tgz",
+    "form-builder": "https://github.com/clearbridgesoft/form-builder/releases/download/v0.0.2/form-builder-0.0.2.tgz",
+    "form-components": "git+https://github.com/clearbridgesoft/form-custom-components.git",
     "form-custom-components": "https://github.com/clearbridgesoft/form-custom-components/releases/download/v0.0.0/form-custom-components-0.0.0.tgz",
     "meteor-node-stubs": "^0.2.3",
     "moment": "^2.14.1",
